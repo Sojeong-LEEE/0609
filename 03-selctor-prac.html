@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>selctor-prac</title>
+<style>
+    body {
+        text-align: center;
+    }
+    button {
+        padding: 1rem;
+        background: teal;
+        color: #eee;
+    }
+</style>
+</head>
+<body>
+    <div>
+        <button id="btnDark">dark-theme</button>
+        <button id="btnWhite">white-theme</button>
+
+        <!-- basic -->
+        <button id="btnShow">show</button>
+        <button id="btnHide">hide</button>
+        <button id="btnToggle">toggle</button>
+
+        <!-- slide -->
+        <button id="btnSlideDown">slideDown</button>
+        <button id="btnSlideUp">slideUp</button>
+        <button id="btnSlideToggle">slideToggle</button>
+
+        <!-- fade -->
+        <button id="btnFadeIn">FadeIn</button>
+        <button id="btnFadeOut">FadeOut</button>
+        <button id="btnFadeToggle">FadeToggle</button>
+    </div>
+    <h1>title</h1>
+    <img src="https://flexible.img.hani.co.kr/flexible/normal/640/360/imgdb/original/2021/0201/20210201503293.jpg" alt="탄지로">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            /* 누구를 */
+            var $btnDark = $('#btnDark');
+            var $btnWhite = $('#btnWhite');
+            var $title = $('h1');
+            const darkTheme = {'font-size': '3rem', 'color': 'red'};
+            /* var $imgElement = $('img'); */
+            var $btnToggle = $('#btnToggle');
+
+            /* 어떻게 하겠다 */
+            /* 1번 dark 누르면 검정색으로 변환 */
+            $btnDark.click(function(){
+                $('body').css('background', '#111');
+                $('img').css('width', 'auto');
+
+                $title.css(darkTheme);
+                
+            })
+
+            /* 2번 white버튼 누르면 하얀색으로 변환 */
+            $btnWhite.click(function(){
+                $('body').css('background', '#eee');
+                $('img').css('width', '200px');
+            })
+        });
+
+        var $btnShow = $('#btnShow');
+        var $btnHide = $('#btnHide');
+        /* show 버튼을 누르면 이미지 보이기 */
+        $btnShow.on('click', function(){
+            $('img').show();
+        });
+
+        /* hide 버튼을 누르면 이미지 숨기기 */
+        $btnHide.on('click', function(){
+            $('img').hide();
+        });
+
+        /* toggle */
+        $btnToggle.on('click', function(){
+            $('img').toggle();
+        });
+
+        var $btnSlideDown = $('#btnSlideDown');
+        var $btnSlideUp = $('#btnSlideUp');
+        var $btnSlideToggle = $('#btnSlideToggle');
+
+        $btnSlideUp.click(function(){
+            $('img').slideUp();
+        });
+        $btnSlideDown.click(function(){
+            $('img').slideDown();
+        });
+        $btnSlideToggle.click(function(){
+            $('img').slideToggle();
+        });
+
+        var $btnFadeIn = $('#btnFadeIn')
+        var $btnFadeOut = $('#btnFadeOut')
+        var $btnFadeToggle = $('#btnFadeToggle')
+
+        btnFadeIn.click(function(){
+            $('img').fadeIn();
+        });
+        btnFadeOut.click(function(){
+            $('img').fadeOut();
+        });
+        btnFadeToggle.click(function(){
+            $('img').fadeToggle();
+        });
+    </script>
+</body>
+</html>
