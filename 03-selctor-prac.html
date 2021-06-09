@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>selctor-prac</title>
+<title>selector simple prac</title>
 <style>
     body {
         text-align: center;
@@ -31,87 +31,104 @@
         <button id="btnSlideToggle">slideToggle</button>
 
         <!-- fade -->
-        <button id="btnFadeIn">FadeIn</button>
-        <button id="btnFadeOut">FadeOut</button>
-        <button id="btnFadeToggle">FadeToggle</button>
+        <button id="btnFadeIn">fadeIn</button>
+        <button id="btnFadeOut">fadeOut</button>
+        <button id="btnFadeToggle">fade Toggle</button>
+        
     </div>
     <h1>title</h1>
-    <img src="https://flexible.img.hani.co.kr/flexible/normal/640/360/imgdb/original/2021/0201/20210201503293.jpg" alt="탄지로">
-
-
+    <img src="https://img.hankyung.com/photo/202102/57569_110380_3719.jpg" alt="">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         $(function(){
-            /* 누구를 */
+            // 누구를
             var $btnDark = $('#btnDark');
             var $btnWhite = $('#btnWhite');
             var $title = $('h1');
             const darkTheme = {'font-size': '3rem', 'color': 'red'};
-            /* var $imgElement = $('img'); */
+            var imgElement = $('img');
             var $btnToggle = $('#btnToggle');
+            
+            // fade element
 
-            /* 어떻게 하겠다 */
-            /* 1번 dark 누르면 검정색으로 변환 */
+
+            // 어떻게 하겠다
+            // 1번 dark 버튼을 누르면(click) 배경색을 검정색으로 변환
             $btnDark.click(function(){
                 $('body').css('background', '#111');
-                $('img').css('width', 'auto');
+                imgElement.css('width', 'auto');
+                /* 
+                $title.css('font-size', "3rem");
+                $title.css('color', "red"); 
+                */
 
-                $title.css(darkTheme);
+                // 멀티 스타일 적용
+                // 변수에 객체를 담아 스타일 적용
                 
+                $title.css(darkTheme);
             })
 
-            /* 2번 white버튼 누르면 하얀색으로 변환 */
+            // 2번 white버튼 > 하얀색으로 배경 변경
+            //              > 이미지 크기를 200px로 변경
             $btnWhite.click(function(){
-                $('body').css('background', '#eee');
-                $('img').css('width', '200px');
+                $('body').css('background', 'white');
+                imgElement.css('width', '200px');
             })
-        });
 
-        var $btnShow = $('#btnShow');
-        var $btnHide = $('#btnHide');
-        /* show 버튼을 누르면 이미지 보이기 */
-        $btnShow.on('click', function(){
-            $('img').show();
-        });
+            var $btnShow = $('#btnShow');
+            var $btnHide = $('#btnHide');
+            // show 버튼을 누르면 이미지 보이기
+            $btnShow.on('click', function(){
+                imgElement.show();
+            });
+            
+            // hide 버튼을 누르면 이미지 숨기기
+            $btnHide.on('click', function(){
+                imgElement.hide();
+            });
 
-        /* hide 버튼을 누르면 이미지 숨기기 */
-        $btnHide.on('click', function(){
-            $('img').hide();
-        });
+            // toggle
+            $btnToggle.on('click', function(){
+                imgElement.toggle();
+            });
 
-        /* toggle */
-        $btnToggle.on('click', function(){
-            $('img').toggle();
-        });
 
-        var $btnSlideDown = $('#btnSlideDown');
-        var $btnSlideUp = $('#btnSlideUp');
-        var $btnSlideToggle = $('#btnSlideToggle');
+            var $btnSlideDown = $('#btnSlideDown');
+            var $btnSlideUp = $('#btnSlideUp');
+            var $btnSlideToggle = $('#btnSlideToggle');
 
-        $btnSlideUp.click(function(){
-            $('img').slideUp();
-        });
-        $btnSlideDown.click(function(){
-            $('img').slideDown();
-        });
-        $btnSlideToggle.click(function(){
-            $('img').slideToggle();
-        });
+            // slide Down
+            $btnSlideDown.click(function(){
+                imgElement.slideDown();
+            })
+            
+            // slide Up
+            $btnSlideUp.click(function(){
+                imgElement.slideUp();
+            })
 
-        var $btnFadeIn = $('#btnFadeIn')
-        var $btnFadeOut = $('#btnFadeOut')
-        var $btnFadeToggle = $('#btnFadeToggle')
+            // slide Toggle
+            $btnSlideToggle.click(function(){
+                imgElement.slideToggle();
+            })
 
-        btnFadeIn.click(function(){
-            $('img').fadeIn();
-        });
-        btnFadeOut.click(function(){
-            $('img').fadeOut();
-        });
-        btnFadeToggle.click(function(){
-            $('img').fadeToggle();
-        });
+            var btnFadeIn = $('#btnFadeIn');
+            var btnFadeOut= $('#btnFadeOut');
+            var btnFadeToggle =$('#btnFadeToggle');
+
+            btnFadeIn.click(function(){
+                imgElement.fadeIn();
+            })
+            btnFadeOut.click(function(){
+                imgElement.fadeOut();
+            })
+            btnFadeToggle.click(function(){
+                imgElement.fadeToggle();
+            })
+
+
+        })
     </script>
 </body>
 </html>
